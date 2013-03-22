@@ -2,7 +2,7 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class ihealth < OmniAuth::Strategies::OAuth2
+    class iHealth < OmniAuth::Strategies::OAuth2
 
       option :name, "ihealth"
 
