@@ -1,2 +1,2 @@
-require "omniauth-SForce/version"
-require 'omniauth/strategies/SForce'
+require "omniauth-ihealth/version"
+require 'omniauth/strategies/ihealth'
