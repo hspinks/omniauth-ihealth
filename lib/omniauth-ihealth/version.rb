@@ -1,5 +1,5 @@
 module OmniAuth
-  module iHealth
+  module ihealth
     VERSION = "1.0"
   end
 end
