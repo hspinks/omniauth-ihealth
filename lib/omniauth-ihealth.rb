@@ -1,2 +1,2 @@
 require "omniauth-ihealth/version"
-require 'omniauth/strategies/iHealth'
+require 'omniauth/strategies/ihealth'
