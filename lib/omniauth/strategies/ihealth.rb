@@ -2,13 +2,13 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class iHealth < OmniAuth::Strategies::OAuth2
+    class IHealth < OmniAuth::Strategies::OAuth2
 
       option :name, "ihealth"
 
       option :client_options, {
         :site          => 'https://api.ihealthlabs:8443',
-        :authorize_url => '/api/OAuthv2/userauthorization.ashx'
+        :authorize_url => '/api/OAuthv2/userauthorization.ashx',
         :token_url  => '/api/OAuthv2/userauthorization.ashx',
       }
 
