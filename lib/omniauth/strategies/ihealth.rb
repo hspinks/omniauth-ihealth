@@ -7,7 +7,8 @@ module OmniAuth
       option :name, "ihealth"
 
       option :client_options, {
-        :site          => 'https://api.ihealthlabs:8443',
+        #:site          => 'https://api.ihealthlabs.com:8443',
+        :site => 'http://sandboxapi.ihealthlabs.com',
         :authorize_url => '/api/OAuthv2/userauthorization.ashx',
         :token_url  => '/api/OAuthv2/userauthorization.ashx',
       }
