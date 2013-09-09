@@ -13,6 +13,10 @@ module OmniAuth
         :token_url  => '/api/OAuthv2/userauthorization.ashx',
       }
 
+      option :authorize_params, {
+          :APIName => 'OpenApiBP OpenApiWeight',
+      }
+
       uid { raw_info['id'] }
 
       credentials do
