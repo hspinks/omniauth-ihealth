@@ -4,27 +4,27 @@ module OmniAuth
   module Strategies
     class IHealth < OmniAuth::Strategies::OAuth2
 
-      option :name, "ihealth"
+      AVAILABLE_API_NAMES = "OpenApiBP OpenApiWeight"
 
-      option :client_options, {
-        #:site          => 'https://api.ihealthlabs.com:8443',
-        :site => 'http://sandboxapi.ihealthlabs.com',
-        :authorize_url => '/api/OAuthv2/userauthorization.ashx',
-        :token_url  => '/api/OAuthv2/userauthorization.ashx',
-      }
+      def initialize(*args)
+        super
+        options.name = "ihealth"
+        options.provider_ignores_state = true
 
-      option :authorize_params, {
-          :APIName => 'OpenApiBP OpenApiWeight',
-      }
+        options.client_options = {
+            :site => options.use_sandbox ?  'http://sandboxapi.ihealthlabs.com' : 'https://api.ihealthlabs.com:8443',
+            :authorize_url => '/api/OAuthv2/userauthorization.ashx',
+            :token_url  => '/api/OAuthv2/userauthorization.ashx',
+            :token_method =>:get
+        }
+
+        options.authorize_params = {
+            :APIName => AVAILABLE_API_NAMES,
+        }
+
+      end
 
       uid { raw_info['id'] }
-
-      credentials do
-        hash = {'token' => access_token.token}
-        hash.merge!('refresh_token' => access_token.refresh_token) if access_token.refresh_token
-        hash
-      end
-      
     end
   end
 end
