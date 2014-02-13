@@ -1,14 +1,15 @@
 require 'omniauth-oauth2'
-require 'oauth2'
+# require 'oauth2'
 
 module OmniAuth
   module Strategies
     class IHealth < OmniAuth::Strategies::OAuth2
 
       AVAILABLE_API_NAMES = "OpenApiActivity OpenApiBG OpenApiBP OpenApiSleep OpenApiSpO2 OpenApiUserInfo OpenApiWeight"
+      DEFAULT_API_NAMES = "OpenApiUserInfo"
 
       option :name, 'ihealth'
-      option :scope, AVAILABLE_API_NAMES
+      option :scope, DEFAULT_API_NAMES
       option :provider_ignores_state, true
 
       option :client_options, {
@@ -67,9 +68,9 @@ module OmniAuth
         info = raw_info
         user_data ||= {
           :name => info["nickname"],
-          :gender => info["gender"],
+          :gender => info["gender"].downcase,
           :birthday => Time.at(info["dateofbirth"]).to_date.strftime("%Y-%m-%d"),
-          :image => info["logo"],
+          :image => URI.unescape(info["logo"]),
           :nickname => info["nickname"],
           :height => calc_height(info["height"], info["HeightUnit"]),
           :weight => calc_weight(info["weight"], info["WeightUnit"])
