@@ -39,41 +39,41 @@ You can configure several options, which you pass in to the `provider` method vi
 
 Here's an example Auth Hash available in `request.env['omniauth.auth']`:
 
-```json
+```ruby
 {
-	:provider => 'ihealth',
-	:uid => "12345",
-	:info => {
-		:name => "John Doe",
-		:nickname => "John Doe",
-		:image => "https://cloud.ihealthlabs.com/logos/12345.png"
+	"provider" => "ihealth",
+	"uid" => "12345",
+	"info" => {
+		"name" => "John Doe",
+		"nickname" => "John Doe",
+		"image" => "https://cloud.ihealthlabs.com/logos/12345.png"
 	},
-	:credentials => {
-		:token => 'ABCDEF...', # OAuth 2.0 access_token
-		:refresh_token => 'ABCDEF...',
-		:expires_at => '1392501884',
-		:expires => true
+	"credentials" => {
+		"token" => "ABCDEF...", # OAuth 2.0 access_token
+		"refresh_token" => "ABCDEF...",
+		"expires_at" => '1392501884',
+		"expires" => true
 	},
-	:extra => {
-		:user_info => {
-			:name => "John Doe",
-			:gender => "male",
-			:birthday => "2013-12-31",
-			:image => "https://cloud.ihealthlabs.com/logos/12345.png",
-			:nickname => "John Doe",
-			:height => 72.00, # height in inches
-			:weight => 180.00 # weight in pounds
+	"extra" => {
+		"user_info" => {
+			"name" => "John Doe",
+			"gender" => "male",
+			"birthday" => "2013-12-31",
+			"image" => "https://cloud.ihealthlabs.com/logos/12345.png",
+			"nickname" => "John Doe",
+			"height" => 72.00, # height in inches
+			"weight" => 180.00 # weight in pounds
 		},
-		:raw_info => {
-			:HeightUnit => 0, # 0 for cm, 1 for ft
-			:WeightUnit => 0, # 0 for kg, 1 for lbs, 2 for stone
-			:dateofbirth => 1388534400,
-			:gender => "Male",
-			:height => 182.88,
-			:logo => "https%3a%2f%2fcloud.ihealthlabs.com%2flogos%2f12345.png",
-			:nickname => "John Doe",
-			:userid => "12345",
-			:weight => 81.6
+		"raw_info" => {
+			"HeightUnit" => 0, # 0 for cm, 1 for ft
+			"WeightUnit" => 0, # 0 for kg, 1 for lbs, 2 for stone
+			"dateofbirth" => 1388534400,
+			"gender" => "Male",
+			"height" => 182.88,
+			"logo" => "https%3a%2f%2fcloud.ihealthlabs.com%2flogos%2f12345.png",
+			"nickname" => "John Doe",
+			"userid" => "12345",
+			"weight" => 81.6
 		}
 	}
 }
