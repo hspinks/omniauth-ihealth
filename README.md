@@ -51,7 +51,7 @@ Here's an example Auth Hash available in `request.env['omniauth.auth']`:
 	"credentials" => {
 		"token" => "ABCDEF...", # OAuth 2.0 access_token
 		"refresh_token" => "ABCDEF...",
-		"expires_at" => '1392501884',
+		"expires_at" => 1392501884,
 		"expires" => true
 	},
 	"extra" => {
