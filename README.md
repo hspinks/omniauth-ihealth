@@ -1,3 +1,5 @@
+## This project is no longer actively maintained, and may be out of date with the iHealth API
+
 # Omniauth Strategy for iHealth
 This is a strategy to connect with iHealth using Ommniauth and OAuth 2.0. Originally written by [ArturKarbone](https://github.com/ArturKarbone), up to date as of Feb 13, 2014 for iHealth's API.
 
