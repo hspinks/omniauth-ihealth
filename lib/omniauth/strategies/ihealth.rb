@@ -76,6 +76,7 @@ module OmniAuth
           user_data[:weight]   = calc_weight(info["weight"], info["WeightUnit"]) if info["weight"] && info["WeightUnit"]
           user_data[:birthday] = Time.at(info["dateofbirth"]).to_date.strftime("%Y-%m-%d") if info["dateofbirth"]
         end
+        user_data
       end
 
       protected
