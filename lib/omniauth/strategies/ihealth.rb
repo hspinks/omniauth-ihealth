@@ -66,15 +66,17 @@ module OmniAuth
 
       def user_data
         info = raw_info
-        user_data ||= {
-          :name => info["nickname"],
-          :gender => info["gender"].downcase,
-          :birthday => Time.at(info["dateofbirth"]).to_date.strftime("%Y-%m-%d"),
-          :image => URI.unescape(info["logo"]),
-          :nickname => info["nickname"],
-          :height => calc_height(info["height"], info["HeightUnit"]),
-          :weight => calc_weight(info["weight"], info["WeightUnit"])
-        }
+        if !user_data
+          user_data = {}
+          user_data[:name]     = info["nickname"]           if info["nickname"]
+          user_data[:nickname] = info["nickname"]           if info["nickname"]
+          user_data[:gender]   = info["gender"]             if info["gender"]
+          user_data[:image]    = URI.unescape(info["logo"]) if info["logo"]
+          user_data[:height]   = calc_height(info["height"], info["HeightUnit"]) if info["height"] && info["HeightUnit"]
+          user_data[:weight]   = calc_weight(info["weight"], info["WeightUnit"]) if info["weight"] && info["WeightUnit"]
+          user_data[:birthday] = Time.at(info["dateofbirth"]).to_date.strftime("%Y-%m-%d") if info["dateofbirth"]
+        end
+        user_data
       end
 
       protected
